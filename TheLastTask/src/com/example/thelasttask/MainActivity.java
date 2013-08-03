@@ -9,8 +9,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,19 +17,19 @@ import android.view.Menu;
 import android.view.ViewGroup.LayoutParams;
 
 public class MainActivity extends Activity {
-	//CustomView[] cv=new CustomView[5];\
+	
 	CustomView cv;
 	Handler mainHandler;
 	int i;
 	String json="";
 	JSONArray ppl;
 	LayoutParams params;
-	String[] name=new String[5];
-	int[] posX=new int[5];
-	int[] posY=new int[5];
-	int[] colorR=new int[5];
-	int[] colorG=new int[5];
-	int[] colorB=new int[5];
+	String[] name=new String[10];
+	int[] posX=new int[10];
+	int[] posY=new int[10];
+	int[] colorR=new int[10];
+	int[] colorG=new int[10];
+	int[] colorB=new int[10];
 	boolean run_thread=true;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +54,7 @@ public class MainActivity extends Activity {
 						HttpResponse httpResponse = defaultClient.execute(httpGetRequest);
 						// Grab the response
 						BufferedReader reader = new BufferedReader(new InputStreamReader(httpResponse.getEntity().getContent(), "UTF-8"));
-						json = reader.readLine();
-						
+						json = reader.readLine();						
 						}catch(Exception e){
 							Log.d("Error",e.toString());
 						}
